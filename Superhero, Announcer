@@ -2,7 +2,7 @@ package Modul_2;
 
 public class Announcer  {
 	public void announce() {
-		System.out.println("To the Arena!!!!");
+		System.out.println("Welcome to the Arena!!!!");
 	}
 		
 }
