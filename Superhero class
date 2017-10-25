@@ -1,0 +1,92 @@
+package Modul_2;
+
+import java.util.Random;
+//field--v
+public class Superhero {
+	private double health;
+	private double AD;
+	private String name;
+
+	//constructor--v
+	public Superhero(double health, String name) {
+		this.health = health;
+		this.name = name;	
+		
+	}
+	//set metode gir attackdamage til superhero
+	public void setAD(double AD) {
+		this.AD = AD;
+	}
+	//get metode returnvalue attackdamage etter den har blitt set
+	public double getAD() {
+		return this.AD;
+	}
+	
+	//get health returnerer health verdien til superhero	
+	public double getHealth() {
+		return this.health;		
+	}	
+	
+	//crit returnerer true hvis crit, 50% chance roll the dice
+	public boolean crit() {
+		Random dice = new Random();
+		int number = dice.nextInt(2);
+		if (number == 1) {
+			System.out.println("its a crit!");
+			return true;	
+		}
+		else {
+			System.out.println("no crit :(");
+			return false;
+		}
+	}
+	
+	//death, tar inn superhero objekt, sjekker om health er større/mindre enn 0
+	public boolean isDead(Superhero hero) {
+		if (hero.health <= 0) {
+			hero.health = 0;
+			return true; 
+		}
+		else {
+			return false;
+		}
+	} 
+	
+	//tar inn Superhero objekt som skal attackes
+	public void attack(Superhero hero) {
+		if (this.crit()) {
+			hero.health = hero.health - 1.5*this.AD;
+			if (this.isDead(hero)) {
+				System.out.println(hero.name + " died");				
+			}
+		}	
+		else {
+			hero.health = hero.health - this.AD;
+			if (this.isDead(hero)) {
+				System.out.println(hero.name + " died");				
+			}
+		}
+	}
+	public void addItem(Item item) {
+		this.health += item.health;
+		this.AD += item.AD;
+	}
+	
+	//main runner prog.
+	public static void main(String[] args) {
+		Announcer Announcer = new Announcer();
+		Announcer.announce();
+		Superhero petter = new Superhero(500, "Petter");
+		petter.setAD(20);
+		Superhero kurtarve = new Superhero(700, "Kurtarve");
+		kurtarve.setAD(50);
+		System.out.println("Kurt Arves attack damage " + kurtarve.getAD());
+		System.out.println("Petters health = " + petter.health);
+		Item doubleDamage = new Item(0, 50);
+		kurtarve.addItem(doubleDamage);
+		System.out.println("Kurt Arves attack is now doubled! " + kurtarve.getAD());
+		kurtarve.attack(petter);		
+		System.out.println("remaining health = " + petter.health);	
+		}
+			
+}
