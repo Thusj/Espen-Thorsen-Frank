@@ -1,0 +1,11 @@
+package Modul_2;
+
+public class Item {
+	public double health;
+	public double AD;
+	
+	public Item (double health, double AD) {
+		this.health = health;
+		this.AD = AD;
+	}
+}
