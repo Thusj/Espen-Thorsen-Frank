@@ -5,6 +5,6 @@
 ### Oppgave 1 a) 
 
 ----------------------------------------------------------------------------------
-I denne oppgaven skulle vi lage et program som skal kunne hente inn en fil og returnere ulike verdier som kb, mb, gb. I tillegg til det skal programmet kunne sjekke en rekke fler detaljert informasjon om en fil.  
+### I denne oppgaven skulle vi lage et program som skal kunne hente inn en fil og returnere ulike verdier som kb, mb, gb. I tillegg til det skal programmet kunne sjekke en rekke fler detaljert informasjon om en fil.  
 Vi løste dette med følgende kode: 
 ----------------------------------------------------------------------------------
